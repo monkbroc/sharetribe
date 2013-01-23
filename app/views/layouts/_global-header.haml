@@ -3,10 +3,17 @@
       
     .select-tribe.toggle.hidden{data: {toggle: '.tribe-menu'}}
       .current-tribe
-        = @current_community.name
+        .icon-with-text.ss-home.icon
+        .text-with-icon= @current_community.name
       %i.icon-dropdown.ss-dropdown
     
     - if @current_user  
+      
+      %input{type: 'search', placeholder: "Hae osoitteella", results: true, class: "search"}
+      
+      %a.request-link{href: new_listing_path + "?ref=homepage"} 
+        %i.ss-addfile.icon-with-text
+        .text-with-icon#post_new_listing Uusi ilmoitus
       
       %a.notifications-toggle.toggle.hidden#notifications_link{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
         %i.icon.ss-earth

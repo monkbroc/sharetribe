@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   @include media(tablet) {
-    padding-top: lines(0.5);
+    padding-top: 0;
   }
   
 }
@@ -216,6 +216,7 @@ ul {
   
   @include media(desktop) {
     padding: 0 lines(0.5);
+    padding-top: lines(2);
   }
   
 }
@@ -240,6 +241,7 @@ ul {
   .map {
     display: block;
     width: 100%;
+    height: 100%;
     height: lines(8);
     margin-top: lines(0.5);
   }
@@ -554,15 +556,19 @@ label.error {
   }
 }
 
+.top-padding {
+  padding-top: lines(2);
+}
+
 .select-tribe {
-  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
-  &:hover { 
-    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
-  }
   margin: 0 0;
   padding: lines(0.5) lines(2.5) lines(0.5) lines(1.75);
   position: relative;
   max-width: lines(100);
+  &:hover { 
+    color: $emphasis;
+    background:  $highlight; 
+  }
   
   .current-tribe {
     display: block;
@@ -582,11 +588,7 @@ label.error {
   border-width: 0 1px 0;
 
   @include media(tablet) {
-    padding: lines(0.5) lines(0.5) lines(0.5) lines(7.25);
-    background: $background url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
-    &:hover { 
-      background: $highlight url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat; 
-    }
+    padding: lines(0.5) lines(0.5) lines(0.5) lines(0.5);
     margin: 0 lines(12) 0 lines(0);
     max-width: lines(8.75);
     .icon-dropdown {
@@ -972,12 +974,10 @@ label.error {
   }
   
   &.toggled-logo {
-    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
-    color: $background !important;
+    color: $emphasis !important;
     border-color: $emphasis;
     
     @include media(tablet) {
-      background: $emphasis url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
       border-bottom-color: $emphasis !important;
     }
   }
@@ -1557,29 +1557,32 @@ a.lightbox-x {
   }
 }
 
-.feed-actions {
-  background: $background;
-  
-  .request-link {
-    display: block;
-    float: left;
-    padding: em(10) em(15) em(10) em(15);
-    color: $link;
-    &:hover { color: darken($link, 15%); }
-  }
-  
-  @include media(tablet) {
-    
-    .request-link {
-      @include big-button;
-      padding: em(8) em(8) em(10) em(8);
-      width: 100%; 
-      margin: 0 0 lines(0.5) 0;
-      &:hover { color: $background; }
-    }
-    
-  }
-  
+input.search {
+  @include box-sizing(border-box);
+  @include border-radius(em(5));
+  border: 1px solid $aside;
+  width: 100%;
+  display: block;
+  z-index: 1000000;
+  margin: em(6) 0 lines(0.5) 0;
+  padding: em(4) 0;
+  position: absolute;
+  right: lines(23); top: lines(0);
+  width: lines(8);
+}
+
+.request-link {
+  display: block;
+  color: $link;
+  z-index: 1000000;
+  @include big-button;
+  @include normal-type;
+  padding: em(3);
+  margin: em(5) 0 lines(0.5) 0;
+  &:hover { color: $background; }
+  position: absolute;
+  right: lines(15); top: lines(0);
+  width: lines(7);
 }
 
 .feed-filters {
@@ -1747,14 +1750,7 @@ a.lightbox-x {
   .map {
     display: block;
     width: 100%;
-    height: lines(12.5);
-  }
-  
-  @include media(tablet) {
-    margin-left: lines(13.5);
-    .map {
-      height: lines(18);
-    }
+    height: lines(50);
   }
   
 }
@@ -1763,7 +1759,6 @@ a.lightbox-x {
   
   @include media(tablet) {
     // Makes space for search
-    padding-top: lines(3);
   }
   
 }
@@ -2030,7 +2025,7 @@ a.lightbox-x {
       @include big-button;
       margin: 0;
       position: absolute;
-      right: 0; top: 0;
+      right: 0; top: lines(2);
       width: lines(11) - em(2); 
     }
   }
@@ -2081,7 +2076,7 @@ a.lightbox-x {
       float: none;
       margin: 0;
       position: absolute;
-      right: lines(0); top: lines(4);
+      right: lines(0); top: lines(6);
       width: lines(15);
       height: lines(11.25);
       img {
@@ -2100,7 +2095,7 @@ a.lightbox-x {
     
     @include media(tablet) {
       position: absolute;
-      right: lines(0); top: lines(17);
+      right: lines(0); top: lines(19);
       width: lines(15);
       height: lines(10);
     }
@@ -2291,6 +2286,7 @@ a.lightbox-x {
 
 
 .view-profile {
+  padding-top: lines(2);
   
   .profile-description {
     
@@ -2323,7 +2319,7 @@ a.lightbox-x {
       @include big-button;
       margin: 0;
       position: absolute;
-      right: 0; top: 0;
+      right: 0; top: lines(2);
       width: lines(8.5) + em(5); 
     }
   }
@@ -2346,7 +2342,7 @@ a.lightbox-x {
       float: none;
       margin: 0;
       position: absolute;
-      right: lines(0); top: lines(4);
+      right: lines(0); top: lines(6);
       width: lines(12);
       height: lines(12);
       img {
@@ -2371,7 +2367,7 @@ a.lightbox-x {
       margin-top: 0;
       margin-bottom: lines(2);
       position: absolute;
-      right: lines(0); top: lines(17.5);
+      right: lines(0); top: lines(19.5);
       width: lines(12);
       height: lines(10);
     }
