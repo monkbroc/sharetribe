@@ -396,6 +396,11 @@ form {
     
   }
   
+  .select-tag-dropdown {
+    margin-bottom: lines(0.5);
+  }
+  
+  
 }
 
 input[type=text], input[type=password], textarea {
@@ -443,6 +448,8 @@ label.radiobutton {
 }
 
 .label-info {
+  display: inline;
+  color: $aside;
   @include small-type;
 }
 
@@ -3277,5 +3284,17 @@ input.search {
     &:nth-child(5n+6) {
       margin-right: 0;
     }
+  }
+}
+
+/*
+  ----------------------------------
+  New email to all community members
+  ----------------------------------
+*/
+
+.new-member-email-form {
+  .permanent-notification {
+    margin-bottom: 0;
   }
 }
